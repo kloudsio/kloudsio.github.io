@@ -1,0 +1,1038 @@
+<!doctype html>
+<html><head><title>Klouds.io application list</title><meta charset="UTF-8"><link href="http://fonts.googleapis.com/css?family=Crimson+Text:400,400italic,700,700italic|Roboto:400,700,700italic,400italic" type="text/css" rel="stylesheet"><style>/*
+ * Copyright 2014 Quip
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License"); you may
+ * not use this file except in compliance with the License. You may obtain
+ * a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+ * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+ * License for the specific language governing permissions and limitations
+ * under the License.
+ */
+
+body {
+    font-size: 15px;
+    color: #333;
+    background: #fff;
+    padding: 60px 95px;
+    max-width: 900px;
+    margin: 0 auto;
+    text-rendering: optimizeLegibility;
+    font-feature-settings: "kern";
+    font-kerning: normal;
+    -moz-font-feature-settings: "kern";
+    -webkit-font-feature-settings: "kern";
+}
+
+/* Headings */
+h1, h2, h3, th {
+    font-family: Roboto, sans-serif;
+    font-weight: 700;
+    margin: 0;
+    margin-top: 1.25em;
+    margin-bottom: 0.75em;
+}
+
+h1 {
+    font-size: 35px;
+    line-height: 42px;
+}
+
+h1:first-child {
+    margin-top: 0;
+}
+
+h2 {
+    font-size: 18px;
+    line-height: 22px;
+}
+
+h3 {
+    text-transform: uppercase;
+    font-size: 13px;
+    line-height: 16px;
+}
+
+/* Body text */
+body, p, ul, ol, td {
+    font-family: 'Crimson Text', serif;
+    font-size: 16px;
+    line-height: 20px;
+}
+
+code, pre {
+    font-family: Consolas, "Liberation Mono", Menlo, "Courier Prime Web", Courier, monospace;
+    background: #f3f3f3;
+}
+
+code {
+    padding: 1px;
+    margin: 0 -1px;
+    border-radius: 3px;
+}
+
+pre {
+    display: block;
+    line-height: 20px;
+    text-shadow: 0 1px white;
+    padding: 5px 5px 5px 30px;
+    white-space: nowrap;
+    position: relative;
+    margin: 1em 0;
+}
+
+pre:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 15px;
+    border-left: solid 1px #dadada;
+}
+
+/* Lists */
+div[data-section-style="5"],
+div[data-section-style="6"],
+div[data-section-style="7"] {
+    margin: 12px 0;
+}
+
+ul {
+    padding: 0 0 0 40px;
+}
+
+ul li {
+    margin-bottom: 0.4em;
+}
+
+/* Bulleted list */
+div[data-section-style="5"] ul {
+    list-style-type: disc;
+}
+div[data-section-style="5"] ul ul {
+    list-style-type: circle;
+}
+div[data-section-style="5"] ul ul ul {
+    list-style-type: square;
+}
+div[data-section-style="5"] ul ul ul ul {
+    list-style-type: disc;
+}
+div[data-section-style="5"] ul ul ul ul ul {
+    list-style-type: circle;
+}
+div[data-section-style="5"] ul ul ul ul ul ul {
+    list-style-type: square;
+}
+
+/* Numbered list */
+div[data-section-style="6"] ul {
+    list-style-type: decimal;
+}
+div[data-section-style="6"] ul ul {
+    list-style-type: lower-alpha;
+}
+div[data-section-style="6"] ul ul ul {
+    list-style-type: lower-roman;
+}
+div[data-section-style="6"] ul ul ul ul {
+    list-style-type: decimal;
+}
+div[data-section-style="6"] ul ul ul ul ul {
+    list-style-type: lower-alpha;
+}
+div[data-section-style="6"] ul ul ul ul ul ul {
+    list-style-type: lower-roman;
+}
+
+/* Checklist */
+div[data-section-style="7"] ul {
+    list-style-type: none;
+}
+
+div[data-section-style="7"] ul li:before {
+    content: "\2610";
+    position: absolute;
+    display: inline;
+    margin-right: 1.2em;
+    margin-left: -1.2em;
+}
+
+div[data-section-style="7"] ul li.parent:before {
+    content: "";
+}
+
+div[data-section-style="7"] ul li.parent {
+    font-weight: bold;
+}
+
+div[data-section-style="7"] ul li.checked {
+    text-decoration: line-through;
+}
+
+div[data-section-style="7"] ul li.checked:before {
+    content: "\2611";
+    text-decoration: none;
+}
+
+/* Tables */
+div[data-section-style="8"] {
+    margin: 12px 0;
+}
+
+table {
+    border-spacing: 0;
+    border-collapse: separate;
+    border: solid 1px #7c7c7c;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, .25);
+    table-layout: fixed;
+    position: relative;
+}
+
+table th, table td {
+    padding: 2px 2px 0;
+    min-width: 1.5em;
+    word-wrap: break-word;
+}
+
+table th {
+    border-bottom: 1px solid #ccc;
+    background: #f0f0f0;
+    font-weight: bold;
+    vertical-align: bottom;
+    color: #3a4449;
+    text-align: center;
+}
+
+table td {
+    padding-top: 0;
+    border-left: 1px solid #e1e1e1;
+    border-top: 1px solid #e1e1e1;
+    vertical-align: top;
+}
+
+table td:first-child {
+    border-left: hidden;
+}
+
+table tr:first-child td {
+    border-top: hidden;
+}
+
+/* Images */
+div[data-section-style="11"] {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+div[data-section-style="11"][data-section-float="0"] {
+    clear: both;
+    text-align: center;
+}
+
+div[data-section-style="11"][data-section-float="1"] {
+    float: left;
+    clear: left;
+    margin-right: 20px;
+}
+
+div[data-section-style="11"][data-section-float="2"] {
+    float: right;
+    clear: right;
+    margin-left: 20px;
+}
+
+div[data-section-style="11"] img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    margin: auto;
+}
+</style></head><body><h1 id='SJVACALosgo'>Klouds.io application list</h1>
+
+<div data-section-style='13'><table id='SJVACA3D8cL' title='Table1' style='width: 66.0667em;'><thead><tr><th id='SJVACA0yyZR'  style='width: 12.8em'>Application
+
+<br/></th><th id='SJVACAV4naO'  style='width: 12em'>Category
+
+<br/></th><th id='SJVACAQeAgj'  style='width: 3.6em'>Hosted How?
+
+<br/></th><th id='SJVACAmzsuK'  style='width: 12.4em'>URL
+
+<br/></th><th id='SJVACAGsOUv'  style='width: 17.2667em'>Logo URL
+
+<br/></th><th id='SJVACADac36' class='empty' style='width: 8em'>F<br/></th></tr></thead><tbody><tr id='SJVACAPW8wL'><td id='SJVACAzwj87'>Sandstorm.io
+
+<br/></td><td id='SJVACAiLJDN'>app suite
+
+<br/></td><td id='SJVACA2aJ8u'>
+
+<br/></td><td id='SJVACA9aa0s'>
+
+<br/></td><td id='SJVACAYYFZ0'>
+
+<br/></td><td id='SJVACApNd7p'>
+
+<br/></td></tr><tr id='SJVACAbDJfd'><td id='SJVACASVcr0'>ethersheet
+
+<br/></td><td id='SJVACAgFxde'>spreadsheet
+
+<br/></td><td id='SJVACAghZAB'>
+
+<br/></td><td id='SJVACAoKDWw'>
+
+<br/></td><td id='SJVACARfCTL'>
+
+<br/></td><td id='SJVACA0akX0'>
+
+<br/></td></tr><tr id='SJVACAzDn4q'><td id='SJVACAuPMOC'>rizzoma
+
+<br/></td><td id='SJVACANh4gd'>collaboration
+
+<br/></td><td id='SJVACAki5TV'>
+
+<br/></td><td id='SJVACAar4ew'>
+
+<br/></td><td id='SJVACAeal53'>
+
+<br/></td><td id='SJVACAnXF0R'>
+
+<br/></td></tr><tr id='SJVACAKTkC7'><td id='SJVACAHwd7w'>junta
+
+<br/></td><td id='SJVACASpcnk'>chat interface
+
+<br/></td><td id='SJVACAsU6eK'>
+
+<br/></td><td id='SJVACAzgfTS'>
+
+<br/></td><td id='SJVACArhJg2'>
+
+<br/></td><td id='SJVACASoBdb'>
+
+<br/></td></tr><tr id='SJVACAFWmZy'><td id='SJVACAzjlNF'>metamaps
+
+<br/></td><td id='SJVACANn6rf'>mind mapping
+
+<br/></td><td id='SJVACAaFspW'>
+
+<br/></td><td id='SJVACAYr2E2'>
+
+<br/></td><td id='SJVACAvBxxU'>
+
+<br/></td><td id='SJVACAxvOFn'>
+
+<br/></td></tr><tr id='SJVACAoDp2a'><td id='SJVACAU2Ium'>apache wave
+
+<br/></td><td id='SJVACAZ2unu'>collaboration/communication
+
+<br/></td><td id='SJVACAXe4nG'>
+
+<br/></td><td id='SJVACARXh4I'>
+
+<br/></td><td id='SJVACAGyDTh'>
+
+<br/></td><td id='SJVACAFA9VG'>
+
+<br/></td></tr><tr id='SJVACAmJD6o'><td id='SJVACAb2O44' class='bold'>gogs
+
+<br/></td><td id='SJVACAhjQKY'>git service
+
+<br/></td><td id='SJVACAYagmi'>
+
+<br/></td><td id='SJVACAL1AcD'>
+
+<br/></td><td id='SJVACAGrS7w'>
+
+<br/></td><td id='SJVACAxupeN'>
+
+<br/></td></tr><tr id='SJVACAObqbT'><td id='SJVACAaMsiz'>gitorius
+
+<br/></td><td id='SJVACATGTAx'>git service
+
+<br/></td><td id='SJVACAmYKas'>
+
+<br/></td><td id='SJVACAM3FIP'>
+
+<br/></td><td id='SJVACAE7ejI'>
+
+<br/></td><td id='SJVACAFYEAY'>
+
+<br/></td></tr><tr id='SJVACAPtzOK'><td id='SJVACAubv9l'>etherpad
+
+<br/></td><td id='SJVACAK2FfQ'>word processor, collaboration
+
+<br/></td><td id='SJVACA4a1OA'>
+
+<br/></td><td id='SJVACANxJ5F'>
+
+<br/></td><td id='SJVACAhniOc'>
+
+<br/></td><td id='SJVACALMOsK'>
+
+<br/></td></tr><tr id='SJVACAQxTRG'><td id='SJVACAoM7z1'>taiga.io
+
+<br/></td><td id='SJVACAQ840U'>agile/scrum
+
+<br/></td><td id='SJVACA7Fzl2'>
+
+<br/></td><td id='SJVACAOMFFY'>
+
+<br/></td><td id='SJVACASNxQb'>
+
+<br/></td><td id='SJVACAUDECL'>
+
+<br/></td></tr><tr id='SJVACAokUHE'><td id='SJVACA3G5M6'>ownCloud 
+
+<br/></td><td id='SJVACAlgNYP'>sync and sharing
+
+<br/></td><td id='SJVACA0BfQ5'>
+
+<br/></td><td id='SJVACACMRln'>
+
+<br/></td><td id='SJVACArgTuh'>
+
+<br/></td><td id='SJVACA1RA0p'>
+
+<br/></td></tr><tr id='SJVACAWc8Mw'><td id='SJVACAxEdV0'>loomio
+
+<br/></td><td id='SJVACABI5OH'>Group Decision making
+
+<br/></td><td id='SJVACA9a0LQ'>
+
+<br/></td><td id='SJVACAKp8qr'>
+
+<br/></td><td id='SJVACAleCii'>
+
+<br/></td><td id='SJVACAmB34Y'>
+
+<br/></td></tr><tr id='SJVACAZ1E9y'><td id='SJVACAqogim'>Kaiwa
+
+<br/></td><td id='SJVACA1pbIA'>XMPP
+
+<br/></td><td id='SJVACAiSqrD'>
+
+<br/></td><td id='SJVACAdod3y'>
+
+<br/></td><td id='SJVACA1IhJU'>
+
+<br/></td><td id='SJVACA41Pp2'>
+
+<br/></td></tr><tr id='SJVACAmUNlu'><td id='SJVACAkIhd9'>Apache OFBiz
+
+<br/></td><td id='SJVACAz3Xy0'>Apache's ERP suite
+
+<br/></td><td id='SJVACAlgb9R'>
+
+<br/></td><td id='SJVACAj7MgJ'>
+
+<br/></td><td id='SJVACAbzyTO'>
+
+<br/></td><td id='SJVACAOD3ap'>
+
+<br/></td></tr><tr id='SJVACAmF5as'><td id='SJVACA5g3UV'>Apache Roller
+
+<br/></td><td id='SJVACAqpYvg'>
+
+<br/></td><td id='SJVACAaGnAm'>
+
+<br/></td><td id='SJVACAtuWm3'>
+
+<br/></td><td id='SJVACAjVtoD'>
+
+<br/></td><td id='SJVACAA8PWk'>
+
+<br/></td></tr><tr id='SJVACAVf46Y'><td id='SJVACAwg6Gg'>Jclouds
+
+<br/></td><td id='SJVACAb31oR'>Multi-Cloud Genesis
+
+<br/></td><td id='SJVACAthHTU'>
+
+<br/></td><td id='SJVACANZLcP'>
+
+<br/></td><td id='SJVACAjMJ7t'>
+
+<br/></td><td id='SJVACAlveoh'>
+
+<br/></td></tr><tr id='SJVACAZ2pEd'><td id='SJVACAHaVEe'>Codiad
+
+<br/></td><td id='SJVACAl3fa4'>Web IDE
+
+<br/></td><td id='SJVACANs2KZ'>
+
+<br/></td><td id='SJVACA270Ah'>
+
+<br/></td><td id='SJVACAX0Es2'>
+
+<br/></td><td id='SJVACAhM03q'>
+
+<br/></td></tr><tr id='SJVACAGjgva'><td id='SJVACAb9n0X'>Apache Tomcat
+
+<br/></td><td id='SJVACAkYHDC'>it's a server!
+
+<br/></td><td id='SJVACATFIv4'>
+
+<br/></td><td id='SJVACAGXjCe'>
+
+<br/></td><td id='SJVACAX5Yji'>
+
+<br/></td><td id='SJVACA307yg'>
+
+<br/></td></tr><tr id='SJVACAUqq2H'><td id='SJVACAMaDD4'>Streisand
+
+<br/></td><td id='SJVACAgQHBb'>Security
+
+<br/></td><td id='SJVACAGz6FP'>
+
+<br/></td><td id='SJVACAlszAB'>
+
+<br/></td><td id='SJVACAf6tbo'>
+
+<br/></td><td id='SJVACAJiRtU'>
+
+<br/></td></tr><tr id='SJVACAIQP6T'><td id='SJVACA9ICNy'>Diaspora
+
+<br/></td><td id='SJVACAVzBKt'>Social Network
+
+<br/></td><td id='SJVACAj4To2'>
+
+<br/></td><td id='SJVACAf6atP'>
+
+<br/></td><td id='SJVACAr4PBv'>
+
+<br/></td><td id='SJVACA4eZNE'>
+
+<br/></td></tr><tr id='SJVACAqEk4l'><td id='SJVACAzUzor'>Discourse
+
+<br/></td><td id='SJVACA1xMwl'>Forum Code
+
+<br/></td><td id='SJVACAP0BZx'>
+
+<br/></td><td id='SJVACAqsaz4'>
+
+<br/></td><td id='SJVACAFzM22'>
+
+<br/></td><td id='SJVACAwsqqa'>
+
+<br/></td></tr><tr id='SJVACADBT0m'><td id='SJVACApDCna'>exotalk
+
+<br/></td><td id='SJVACAB6Ep5'>Forum Code
+
+<br/></td><td id='SJVACA0uKp7'>
+
+<br/></td><td id='SJVACAE1Dnn'>
+
+<br/></td><td id='SJVACAosDgh'>
+
+<br/></td><td id='SJVACAyKuXs'>
+
+<br/></td></tr><tr id='SJVACAmt9fp'><td id='SJVACA8eRTt'>Flarum
+
+<br/></td><td id='SJVACAOWo25'>Forum Code
+
+<br/></td><td id='SJVACAOBMBs'>
+
+<br/></td><td id='SJVACA2bPqd'><a href="https://github.com/flarum/flarum">https://github.com/flarum/flarum</a>
+
+<br/></td><td id='SJVACAbtX1t'>http://flarum.org/
+
+<br/></td><td id='SJVACAkC9N3'>
+
+<br/></td></tr><tr id='SJVACAcRVSG'><td id='SJVACA1L0WV'>Brooklyn
+
+<br/></td><td id='SJVACAfjSqD'>Deployment tool
+
+<br/></td><td id='SJVACAO1Cuv'>
+
+<br/></td><td id='SJVACAyuZhP'><a href="https://github.com/apache/brooklyn-incubator">https://github.com/apache/brooklyn-incubator</a>
+
+<br/></td><td id='SJVACAziau5'>
+
+<br/></td><td id='SJVACAo4nDe'>
+
+<br/></td></tr><tr id='SJVACAutrrQ'><td id='SJVACARTlfG'>Vault
+
+<br/></td><td id='SJVACAf0Szl'>Password management (infrastructure)
+
+<br/></td><td id='SJVACAauP8j'>
+
+<br/></td><td id='SJVACAIMFPT'><a href="https://github.com/hashicorp/vault">https://github.com/hashicorp/vault</a>
+
+<br/></td><td id='SJVACAS5JUo'>https://vaultproject.io/
+
+<br/></td><td id='SJVACAvV7SV'>
+
+<br/></td></tr><tr id='SJVACAbEf3q'><td id='SJVACAy4yP2'>HabitRPG
+
+<br/></td><td id='SJVACAtS5NI'>Productivity
+
+<br/></td><td id='SJVACA8jfSE'>
+
+<br/></td><td id='SJVACAzTRPg'>habitrpg/habitrpg
+
+<br/></td><td id='SJVACAljz3I'>
+
+<br/></td><td id='SJVACAPzVGa'>
+
+<br/></td></tr><tr id='SJVACAIXRoi'><td id='SJVACAxef1L'>Preconfigured, Prethemed Jekyll 100% free for Github pages
+
+<br/></td><td id='SJVACAH8ueb'>Awesome
+
+<br/></td><td id='SJVACAqVIWW'>
+
+<br/></td><td id='SJVACAF7Xdi'>We make it
+
+<br/></td><td id='SJVACAzJvgD'>
+
+<br/></td><td id='SJVACAhAqEB'>
+
+<br/></td></tr><tr id='SJVACAwLosW'><td id='SJVACACpDeb'>Syncthing
+
+<br/></td><td id='SJVACAogWWw'>Server mgmt &amp; sync
+
+<br/></td><td id='SJVACAFoul2'>
+
+<br/></td><td id='SJVACADrqkI'>
+
+<br/></td><td id='SJVACAadMrs'>
+
+<br/></td><td id='SJVACAsH4CP'>
+
+<br/></td></tr><tr id='SJVACAi4BmX'><td id='SJVACAvwA0I'>piwik
+
+<br/></td><td id='SJVACA7JaIx'>Analytics
+
+<br/></td><td id='SJVACAzR671'>
+
+<br/></td><td id='SJVACABdMX0'>
+
+<br/></td><td id='SJVACA352Kf'>
+
+<br/></td><td id='SJVACAiHKwL'>
+
+<br/></td></tr><tr id='SJVACAW7hb1'><td id='SJVACAVlb1G'>invoice-ninja
+
+<br/></td><td id='SJVACAd9xcd'>accounting
+
+<br/></td><td id='SJVACAD0nrT'>
+
+<br/></td><td id='SJVACAKXGKx'><a href="https://github.com/hillelcoren/invoice-ninja">hillelcoren/invoice-ninja</a>
+
+<br/></td><td id='SJVACA3YUn0'>
+
+<br/></td><td id='SJVACA6pbUx'>
+
+<br/></td></tr><tr id='SJVACAPgHhs'><td id='SJVACAeELmt'>Hugo preconfigured &amp; prethemed like Jekyll &amp; optimized for GH pages
+
+<br/></td><td id='SJVACAnqYn6'>Static Generator/blog/awesome
+
+<br/></td><td id='SJVACAplpLk'>
+
+<br/></td><td id='SJVACA7P1TQ'>spf13/hugo
+
+<br/></td><td id='SJVACAhqLnh'>
+
+<br/></td><td id='SJVACApVyhD'>
+
+<br/></td></tr><tr id='SJVACA6m6FJ'><td id='SJVACAnKobQ' class='bold'>gocd
+
+<br/></td><td id='SJVACASxVqz'>continuous delivery
+
+<br/></td><td id='SJVACAjvq0G'>
+
+<br/></td><td id='SJVACAfrT96'>gocd/gocd
+
+<br/></td><td id='SJVACAzvNcb'>
+
+<br/></td><td id='SJVACAOX0ek'>
+
+<br/></td></tr><tr id='SJVACASCKCG'><td id='SJVACA8oi91'>Sylius
+
+<br/></td><td id='SJVACAdRucv'>e-commerce
+
+<br/></td><td id='SJVACAWW0Vq'>
+
+<br/></td><td id='SJVACABxxxA'>sylius/sylius
+
+<br/></td><td id='SJVACAYFMpf'>
+
+<br/></td><td id='SJVACAjPhqZ'>
+
+<br/></td></tr><tr id='SJVACAoPUe2'><td id='SJVACA2dB7Z'>gitlab-ci
+
+<br/></td><td id='SJVACA6Mrs8'>Continuous integration via gitlab
+
+<br/></td><td id='SJVACACRgUU'>
+
+<br/></td><td id='SJVACA1tiVD'>gitlabhq/gitlab-ci
+
+<br/></td><td id='SJVACAq8vdV'>
+
+<br/></td><td id='SJVACAkrLxI'>
+
+<br/></td></tr><tr id='SJVACAgJJEj'><td id='SJVACAqHo7p'>Apache Spark
+
+<br/></td><td id='SJVACA8mAeR'>cluster computing system for Big Data
+
+<br/></td><td id='SJVACAAjBhu'>
+
+<br/></td><td id='SJVACAqx2Sr'>apache/spark
+
+<br/></td><td id='SJVACA6NnOF'>
+
+<br/></td><td id='SJVACAOw4ep'>
+
+<br/></td></tr><tr id='SJVACAweJV8'><td id='SJVACAQwPaQ'>Graylog
+
+<br/></td><td id='SJVACABe1b7'>log management
+
+<br/></td><td id='SJVACA2EEqj'>
+
+<br/></td><td id='SJVACAwddFC'>graylog2/graylog2-server
+
+<br/></td><td id='SJVACAkcLbM'>
+
+<br/></td><td id='SJVACAHrt09'>
+
+<br/></td></tr><tr id='SJVACA08ioB'><td id='SJVACAdguGE'>OctoberCMS
+
+<br/></td><td id='SJVACA8IhSs'>CMS
+
+<br/></td><td id='SJVACA64fRX'>
+
+<br/></td><td id='SJVACArKzJ7'>octobercms/october
+
+<br/></td><td id='SJVACAvHXP9'>
+
+<br/></td><td id='SJVACA8zLF1'>
+
+<br/></td></tr><tr id='SJVACAqVB78'><td id='SJVACAIFAsF'>Mermaid
+
+<br/></td><td id='SJVACA1553J'>Diagramming
+
+<br/></td><td id='SJVACA0BVWy'>
+
+<br/></td><td id='SJVACAiukqJ'>knsv/mermaid
+
+<br/></td><td id='SJVACAESkv6'>
+
+<br/></td><td id='SJVACAOvSVb'>
+
+<br/></td></tr><tr id='SJVACAWaVjD'><td id='SJVACAXuoqy'>Joomla
+
+<br/></td><td id='SJVACATGJXT'>CMS
+
+<br/></td><td id='SJVACABIEa3'>
+
+<br/></td><td id='SJVACAjdmRc'>joomla/joomla-cms
+
+<br/></td><td id='SJVACAE3Mwd'>
+
+<br/></td><td id='SJVACAbaqKq'>
+
+<br/></td></tr><tr id='SJVACA6M2Rh'><td id='SJVACAMw3C7'>Medium-editor
+
+<br/></td><td id='SJVACAWR6ER'>WYSIWYG / Yuppie Blog
+
+<br/></td><td id='SJVACA4Oomu'>
+
+<br/></td><td id='SJVACATzwqw'>daviferreira/medium-editor
+
+<br/></td><td id='SJVACACDnsW'>
+
+<br/></td><td id='SJVACAy5IHr'>
+
+<br/></td></tr><tr id='SJVACAjjU7S'><td id='SJVACANuIa9'>Seafile
+
+<br/></td><td id='SJVACAj0UqB'>Cloud Storage
+
+<br/></td><td id='SJVACAJ8zLX'>
+
+<br/></td><td id='SJVACArYelX'>haiwen/seafile
+
+<br/></td><td id='SJVACAkDCl6'>
+
+<br/></td><td id='SJVACA6d8pf'>
+
+<br/></td></tr><tr id='SJVACAVV01H'><td id='SJVACAfZ8yd'>Ghost
+
+<br/></td><td id='SJVACA8Z6Tz'>Blog
+
+<br/></td><td id='SJVACApBCuW'>
+
+<br/></td><td id='SJVACA49DXB'>TryGhost/Ghost
+
+<br/></td><td id='SJVACAgFCYh'>
+
+<br/></td><td id='SJVACAxYIr8'>
+
+<br/></td></tr><tr id='SJVACAnIaeK'><td id='SJVACA4nWeI'>PrestaShop
+
+<br/></td><td id='SJVACAOMJDh'>E-Commerce
+
+<br/></td><td id='SJVACA1WH4H'>
+
+<br/></td><td id='SJVACAd2Out'>PrestaShop/PrestaShop
+
+<br/></td><td id='SJVACACTJzK'>
+
+<br/></td><td id='SJVACAcsypC'>
+
+<br/></td></tr><tr id='SJVACAvETSF'><td id='SJVACAYBiDH'>Mapnik
+
+<br/></td><td id='SJVACAcGjlV'>Mapping
+
+<br/></td><td id='SJVACAbTnlj'>
+
+<br/></td><td id='SJVACAkijCo'>Mapnik/mapnik
+
+<br/></td><td id='SJVACA8b3Zv'>
+
+<br/></td><td id='SJVACA3kpYD'>
+
+<br/></td></tr><tr id='SJVACAtZGh7'><td id='SJVACA17IMe'>hexo
+
+<br/></td><td id='SJVACAQrDaf'>blog
+
+<br/></td><td id='SJVACAHsTBL'>
+
+<br/></td><td id='SJVACAau9ZV'>hexojs/hexo
+
+<br/></td><td id='SJVACA32QOl'>
+
+<br/></td><td id='SJVACAiWZbH'>
+
+<br/></td></tr><tr id='SJVACAyww6P'><td id='SJVACAArvQv'>druid-io/druid
+
+<br/></td><td id='SJVACAFHWul'>reaaltime data
+
+<br/></td><td id='SJVACA3BU37'>
+
+<br/></td><td id='SJVACARtaUD'>druid-io/druid
+
+<br/></td><td id='SJVACADcaB4'>
+
+<br/></td><td id='SJVACANtNiu'>
+
+<br/></td></tr><tr id='SJVACAfNKdD'><td id='SJVACACx9fo'>sirius
+
+<br/></td><td id='SJVACAg5clO'>Video + Voice personal assistant
+
+<br/></td><td id='SJVACAiOOXM'>
+
+<br/></td><td id='SJVACActZdF'>jhauswald/sirius
+
+<br/></td><td id='SJVACAdXkmz'>
+
+<br/></td><td id='SJVACA0xLx6'>
+
+<br/></td></tr><tr id='SJVACABmLZA'><td id='SJVACAw3hmJ'>OpenRefine
+
+<br/></td><td id='SJVACATHil8'>Data Cleaner
+
+<br/></td><td id='SJVACAE3TLA'>
+
+<br/></td><td id='SJVACAIfhjQ'>Openrefine/openrefine
+
+<br/></td><td id='SJVACAUYfIr'>
+
+<br/></td><td id='SJVACAlOAdH'>
+
+<br/></td></tr><tr id='SJVACAc3VXd'><td id='SJVACAfr7Uj'>Phaser
+
+<br/></td><td id='SJVACAFj1s5'>game engine
+
+<br/></td><td id='SJVACAPzL5x'>
+
+<br/></td><td id='SJVACAcMJP4'>photonstorm/phaser
+
+<br/></td><td id='SJVACAfSImQ'>
+
+<br/></td><td id='SJVACASOUQa'>
+
+<br/></td></tr><tr id='SJVACAzvRo6'><td id='SJVACA5lDrP'>vanilla
+
+<br/></td><td id='SJVACAtn53x'>forums
+
+<br/></td><td id='SJVACAfMNU5'>
+
+<br/></td><td id='SJVACA2yBrv'>vanilla/vanilla
+
+<br/></td><td id='SJVACATGCc2'>
+
+<br/></td><td id='SJVACAxxwNv'>
+
+<br/></td></tr><tr id='SJVACAoXvD0'><td id='SJVACAxCVOE'>sandstorm.io
+
+<br/></td><td id='SJVACAFkemJ'>Darude
+
+<br/></td><td id='SJVACAYhNId'>
+
+<br/></td><td id='SJVACACsenE'>sandstorm-io/sandstorm
+
+<br/></td><td id='SJVACA12UdE'>
+
+<br/></td><td id='SJVACA8fvKF'>
+
+<br/></td></tr><tr id='SJVACAKJBE5'><td id='SJVACA5CysK'>onionshare
+
+<br/></td><td id='SJVACATQXuf'>filesharing
+
+<br/></td><td id='SJVACAdi1ts'>
+
+<br/></td><td id='SJVACANv4Fk'>micahflee/onionshare
+
+<br/></td><td id='SJVACA5Pmm5'>
+
+<br/></td><td id='SJVACAqRlM3'>
+
+<br/></td></tr><tr id='SJVACAxLarb'><td id='SJVACAmkYTT'>exercism.io
+
+<br/></td><td id='SJVACAGXXW8'>mentorship
+
+<br/></td><td id='SJVACAWQyoQ'>
+
+<br/></td><td id='SJVACAWfh98'>exercism/exercism.io
+
+<br/></td><td id='SJVACAnj2Pv'>
+
+<br/></td><td id='SJVACApPcR9'>
+
+<br/></td></tr><tr id='SJVACATmBDh'><td id='SJVACAJPmhx'>tiddlywiki5
+
+<br/></td><td id='SJVACAs9a1F'>wikiware
+
+<br/></td><td id='SJVACAibY9E'>
+
+<br/></td><td id='SJVACAiV3d3'>jermolene/tiddlywiki5
+
+<br/></td><td id='SJVACAbI0cK'>
+
+<br/></td><td id='SJVACAzFcAq'>
+
+<br/></td></tr><tr id='SJVACAskquq'><td id='SJVACAMXOjr'>bitcore
+
+<br/></td><td id='SJVACALhUTU'>bitcoin library for javascript
+
+<br/></td><td id='SJVACA31oYs'>
+
+<br/></td><td id='SJVACARkRnG'>bitpay/bitcore
+
+<br/></td><td id='SJVACAeGcuD'>
+
+<br/></td><td id='SJVACAqqgmD'>
+
+<br/></td></tr><tr id='SJVACA7bNrH'><td id='SJVACAh6u9D'>Mail In A Box
+
+<br/></td><td id='SJVACAbxyqt'>personal / company mailserver
+
+<br/></td><td id='SJVACA90CBp'>
+
+<br/></td><td id='SJVACAFUZB2'>mail-in-a-box/mailinabox
+
+<br/></td><td id='SJVACAcjudl'>
+
+<br/></td><td id='SJVACAbHoAJ'>
+
+<br/></td></tr><tr id='SJVACAsSwPk'><td id='SJVACAngZs8'>opencart
+
+<br/></td><td id='SJVACAO24e5'>e-commerce
+
+<br/></td><td id='SJVACAq2KZE'>
+
+<br/></td><td id='SJVACAWoI9C'>opencart/opencart
+
+<br/></td><td id='SJVACA4AeFv'>
+
+<br/></td><td id='SJVACAYRsZx'>
+
+<br/></td></tr><tr id='SJVACA84EUY'><td id='SJVACAGez0y'>libreboard
+
+<br/></td><td id='SJVACA0vuji'>project manager
+
+<br/></td><td id='SJVACASpn6W'>
+
+<br/></td><td id='SJVACA47NVE'>libreboard/libreboard
+
+<br/></td><td id='SJVACAaPhHu'>
+
+<br/></td><td id='SJVACA8wvNA'>
+
+<br/></td></tr><tr id='SJVACAHTc8I'><td id='SJVACAQzj6Q'>Taiga
+
+<br/></td><td id='SJVACAA9zl0'>project manager
+
+<br/></td><td id='SJVACAzdUj3'>
+
+<br/></td><td id='SJVACABEDit'>taigaio/front &amp; taigaio/back
+
+<br/></td><td id='SJVACAkgFjK'>
+
+<br/></td><td id='SJVACAcXi9I'>
+
+<br/></td></tr><tr id='SJVACABnmr0'><td id='SJVACA5relk'>OpenBazaar
+
+<br/></td><td id='SJVACA6122C'>decentralized marketplace
+
+<br/></td><td id='SJVACAJ3S8x'>
+
+<br/></td><td id='SJVACAmvuOO'>OpenBazaar/OpenBazaar
+
+<br/></td><td id='SJVACAbNH9y'>
+
+<br/></td><td id='SJVACA29FLR'>
+
+<br/></td></tr><tr id='SJVACAM5lQ4'><td id='SJVACA6qxbd'>codeboxide
+
+<br/></td><td id='SJVACADwQg7'>cloud/desktop IDE
+
+<br/></td><td id='SJVACAYl50N'>
+
+<br/></td><td id='SJVACAlKbMY'>coeboxide/codebox
+
+<br/></td><td id='SJVACAZ7lUy'>
+
+<br/></td><td id='SJVACAnNdKB'>
+
+<br/></td></tr><tr id='SJVACAxbbRl'><td id='SJVACAqMt9w'>paperwork
+
+<br/></td><td id='SJVACApV5ho'>
+
+<br/></td><td id='SJVACAbIiVL'>
+
+<br/></td><td id='SJVACADacOo'>twostairs/paperwork
+
+<br/></td><td id='SJVACACS4wF'>
+
+<br/></td><td id='SJVACAmESP3'>
+
+<br/></td></tr><tr id='SJVACA9W6ab'><td id='SJVACAoOHb3'>IRCAnywhere
+
+<br/></td><td id='SJVACAJOckz'>
+
+<br/></td><td id='SJVACAPOHyC'>
+
+<br/></td><td id='SJVACAKeU3r'>
+
+<br/></td><td id='SJVACAgJLbO'>
+
+<br/></td><td id='SJVACAq0CoS'>
+
+<br/></td></tr><tr id='SJVACAHhDsz'><td id='SJVACAmfOjt' class='bold'>Journey
+
+<br/></td><td id='SJVACARSwf2'>
+
+<br/></td><td id='SJVACAdxqI2'>
+
+<br/></td><td id='SJVACAIaO2V'>
+
+<br/></td><td id='SJVACAR8DbT'>
+
+<br/></td><td id='SJVACAdfQWf'>
+
+<br/></td></tr></tbody></table></div></body></html>
