@@ -13,3 +13,10 @@
 </head>
 <body>
   <div id="container">
+    <header role="banner">
+      <nav>
+        <ul>
+          {% for link in site.nav %} <li><a href="{{ link.url }}">{{ link.title }}</a></li> {% endfor %}
+        </ul>
+      </nav>
+    </header>
