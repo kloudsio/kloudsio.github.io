@@ -1,9 +1,5 @@
 name: Klouds.io Documentation
-description: The Klouds.io Documentation
-url: http://kloudsio.github.io/
+baseurl: http://kloudsio.github.io
 
-title: Klouds.io Documentation
 markdown: redcarpet
 highlighter: pygments
-gems:
-    - jekyll-sitemap

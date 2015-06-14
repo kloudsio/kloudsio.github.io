@@ -1,0 +1,64 @@
+html {
+	font-size: 18px;
+	font-family: Liberation Sans, Helvetica, sans-serif;
+	line-height: 1.4;
+	background: #fefefe;
+	color: #222;
+}
+
+header {
+	text-align: center;
+}
+
+a {
+	color: blue;
+	text-decoration: none;
+}
+a:hover {
+	text-decoration: underline;
+}
+
+p {
+	margin: 1.1em 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+	margin: 1.3em 0 0.7em;
+}
+
+/* RESPONSIVE STUFF */
+
+/* higher than 900px wide screen */
+body {
+	max-width: 700px;
+	padding: 0 10px;
+	margin: 0 auto;
+}
+
+/* 900px or smaller width screen */
+@media (max-width: 900px) {
+	html {
+		font-size: 20px;
+	}
+	body {
+		max-width: 600px;
+		padding: 0 10px;
+		margin: 0 auto;
+	}
+}
+
+/* 400px or smaller width screen */
+@media (max-width: 400px) {
+	html {
+		font-size: 16px;
+	}
+	body {
+		max-width: 300px;
+		padding: 0 10px;
+		margin: 0 auto;
+	}
+}
