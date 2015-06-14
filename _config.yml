@@ -10,4 +10,3 @@ nav:
 	  url: "/about/"
 
 markdown: redcarpet
-highlighter: pygments
