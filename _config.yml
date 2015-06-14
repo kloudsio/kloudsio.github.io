@@ -2,11 +2,11 @@ name: Klouds.io Documentation
 baseurl: http://kloudsio.github.io
 
 nav:
-	- home:
-	  title: Home
-	  url: "/"
-	- about:
-	  title: About Us
-	  url: "/about/"
+    - home:
+      title: "Home"
+      url: "/"
+    - about:
+      title: "About Us"
+      url: "/about/"
 
 markdown: redcarpet
